@@ -263,7 +263,7 @@ namespace BlogProyecto.Controllers
             if (ModelState.IsValid)
             {
                 // Insertar un nuevo usuario en la base de datos
-                using (UsersContext db = new UsersContext())
+                using (Context db = new Context())
                 {
                     UserProfile user = db.UserProfiles.FirstOrDefault(u => u.UserName.ToLower() == model.UserName.ToLower());
                     // Comprobar si el usuario ya existe
