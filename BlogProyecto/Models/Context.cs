@@ -16,5 +16,8 @@ namespace BlogProyecto.Models
 
             public DbSet<UserProfile> UserProfiles { get; set; }
             public DbSet<Entrada> Entradas { get; set; }
+            public DbSet<Comentario> Comentarios { get; set; }
+            public DbSet<Blogger> Bloggers { get; set; }
+            public DbSet<Blog> Blogs { get; set; }
     }
 }

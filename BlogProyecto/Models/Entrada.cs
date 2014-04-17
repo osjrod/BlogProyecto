@@ -6,7 +6,7 @@ using System.Web;
 
 namespace BlogProyecto.Models
 {
-    [Table("Entrada")]
+    
     public class Entrada
     {
         public int Id { get; set; }

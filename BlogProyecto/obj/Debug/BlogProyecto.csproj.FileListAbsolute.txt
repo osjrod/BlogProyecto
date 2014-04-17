@@ -1,4 +1,3 @@
-C:\Users\inspiron\Documents\GitHub\BlogProyecto\BlogProyecto\obj\Debug\BlogProyecto.csprojResolveAssemblyReference.cache
 C:\Users\inspiron\Documents\GitHub\BlogProyecto\BlogProyecto\bin\BlogProyecto.dll
 C:\Users\inspiron\Documents\GitHub\BlogProyecto\BlogProyecto\bin\BlogProyecto.pdb
 C:\Users\inspiron\Documents\GitHub\BlogProyecto\BlogProyecto\bin\Antlr3.Runtime.dll
