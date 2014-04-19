@@ -32,17 +32,10 @@
             @Html.LabelFor(model => model.Contenido)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Contenido)
+            @Html.TextAreaFor(model => model.Contenido)
             @Html.ValidationMessageFor(model => model.Contenido)
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Activo)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Activo)
-            @Html.ValidationMessageFor(model => model.Activo)
-        </div>
 
         <p>
             <input type="submit" value="Create" />

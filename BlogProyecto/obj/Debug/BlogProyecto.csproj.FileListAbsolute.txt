@@ -60,3 +60,4 @@ C:\Users\inspiron\Documents\GitHub\BlogProyecto\BlogProyecto\bin\es\Microsoft.We
 C:\Users\inspiron\Documents\GitHub\BlogProyecto\BlogProyecto\bin\es\WebMatrix.WebData.resources.dll
 C:\Users\inspiron\Documents\GitHub\BlogProyecto\BlogProyecto\obj\Debug\BlogProyecto.dll
 C:\Users\inspiron\Documents\GitHub\BlogProyecto\BlogProyecto\obj\Debug\BlogProyecto.pdb
+C:\Users\inspiron\Documents\GitHub\BlogProyecto\BlogProyecto\obj\Debug\BlogProyecto.csprojResolveAssemblyReference.cache

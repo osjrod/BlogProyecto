@@ -11,8 +11,8 @@ namespace BlogProyecto.Models
     {
         public int Id { get; set; }
         public DateTime Fecha { get; set; }
-        public virtual IEnumerable<Entrada> Entrada { get; set; }
         public String Contenido { get; set; }
         public bool Activo { get; set; }
+ 
     }
 }
