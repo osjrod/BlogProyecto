@@ -6,6 +6,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using BlogProyecto.Models;
+using PagedList.Mvc;
+using PagedList;
+
 
 namespace BlogProyecto.Controllers
 {
@@ -16,9 +19,11 @@ namespace BlogProyecto.Controllers
         //
         // GET: /Entrada/
 
-        public ActionResult Index()
+        public ViewResult Index(int page = 1)
         {
-            return View(db.Entradas.ToList());
+            List<Entrada> model = this.db.Entradas.ToList();
+            const int pageSize = 3;
+            return View(model.ToPagedList(page, pageSize));
         }
 
         //

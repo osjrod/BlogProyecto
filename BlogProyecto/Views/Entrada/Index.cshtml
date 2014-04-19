@@ -1,17 +1,22 @@
-﻿@model IEnumerable<BlogProyecto.Models.Entrada>
+﻿@model PagedList.IPagedList<BlogProyecto.Models.Entrada>
 
 @{
     ViewBag.Title = "Index";
 }
+@using PagedList.Mvc; 
+@using PagedList; 
 
+<link href="/Content/PagedList.css" rel="stylesheet" type="text/css" />
 
 <div class="container">
 
     
         <div class="row">
-            @foreach (var item in Model) { 
+             
+   
             <div class="col-lg-8">
-
+                @foreach (var item in Model) {
+                <div class="well">
                 <!-- the actual blog post: title/author/date/content -->
                 <h1> @Html.DisplayFor(modelItem => item.Titulo) </h1>
                 <p class="lead">by <a href="index.php">@Html.DisplayFor(modelItem => item.Usuario)</a>
@@ -41,16 +46,23 @@
                 </div>
 
                 <hr>
-            @foreach (var comment in item.Comentarios) { 
+                    <div>
+                        @foreach (var comment in item.Comentarios) { 
                 <!-- the comments -->
                 <h3>Start Bootstrap
                     <small>@Html.DisplayFor(modelItem => comment.Fecha)</small>
                 </h3>
                 <p>@Html.DisplayFor(modelItem => comment.Contenido)</p>
-            }
+                    }
+                    </div>
+            </div>
+                    }
+                 @Html.PagedListPager( (IPagedList)Model, page => Url.Action("Index", new { page }) )
+
             </div>
 
-        }
+        
+           
     
 
             <div class="col-lg-4">

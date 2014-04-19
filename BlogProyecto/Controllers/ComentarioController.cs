@@ -52,10 +52,10 @@ namespace BlogProyecto.Controllers
             {
                 db.Comentarios.Add(comentario);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return Redirect("/Entrada/index");
             }
 
-            return View(comentario);
+            return Redirect("/Entrada/index");
         }
 
         //

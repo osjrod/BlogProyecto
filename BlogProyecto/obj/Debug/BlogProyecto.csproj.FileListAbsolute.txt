@@ -61,3 +61,7 @@ C:\Users\inspiron\Documents\GitHub\BlogProyecto\BlogProyecto\bin\es\WebMatrix.We
 C:\Users\inspiron\Documents\GitHub\BlogProyecto\BlogProyecto\obj\Debug\BlogProyecto.dll
 C:\Users\inspiron\Documents\GitHub\BlogProyecto\BlogProyecto\obj\Debug\BlogProyecto.pdb
 C:\Users\inspiron\Documents\GitHub\BlogProyecto\BlogProyecto\obj\Debug\BlogProyecto.csprojResolveAssemblyReference.cache
+C:\Users\inspiron\Documents\GitHub\BlogProyecto\BlogProyecto\bin\PagedList.dll
+C:\Users\inspiron\Documents\GitHub\BlogProyecto\BlogProyecto\bin\PagedList.Mvc.dll
+C:\Users\inspiron\Documents\GitHub\BlogProyecto\BlogProyecto\bin\PagedList.xml
+C:\Users\inspiron\Documents\GitHub\BlogProyecto\BlogProyecto\bin\PagedList.Mvc.xml
