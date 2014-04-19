@@ -24,12 +24,17 @@
                 
                 <hr>
 
+
+
+                
                 <!-- the comment box -->
                 <div class="well">
                     <h4>Leave a Comment:</h4>
-                    <form role="form">
+                    <form role="form" action="/comentario/create" method="post">
                         <div class="form-group">
-                            <textarea class="form-control" rows="3"></textarea>
+                            <textarea name="Contenido" class="form-control" rows="3"></textarea>
+                            <input type="hidden" name="EntradaId" class="form-control" value="@item.Id">
+                            <input type="hidden" name="Fecha" class="form-control" value="@DateTime.Now">
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
@@ -38,16 +43,10 @@
                 <hr>
             @foreach (var comment in item.Comentarios) { 
                 <!-- the comments -->
-                 @Html.DisplayFor(modelItem => comment.Contenido)
                 <h3>Start Bootstrap
-                    <small>9:41 PM on August 24, 2013</small>
+                    <small>@Html.DisplayFor(modelItem => comment.Fecha)</small>
                 </h3>
-                <p>This has to be the worst blog post I have ever read. It simply makes no sense. You start off by talking about space or something, then you randomly start babbling about cupcakes, and you end off with random fish names.</p>
-
-                <h3>Start Bootstrap
-                    <small>9:47 PM on August 24, 2013</small>
-                </h3>
-                <p>Don't listen to this guy, any blog with the categories 'dinosaurs, spaceships, fried foods, wild animals, alien abductions, business casual, robots, and fireworks' has true potential.</p>
+                <p>@Html.DisplayFor(modelItem => comment.Contenido)</p>
             }
             </div>
 
