@@ -47,7 +47,7 @@
 
                 <hr>
                     <div>
-                        @foreach (var comment in item.Comentarios) { 
+                        @foreach (var comment in item.Comentarios.Reverse()) { 
                 <!-- the comments -->
                 <h3>Start Bootstrap
                     <small>@Html.DisplayFor(modelItem => comment.Fecha)</small>

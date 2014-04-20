@@ -57,7 +57,7 @@ namespace BlogProyecto.Controllers
             {
                 db.Entradas.Add(entrada);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return Redirect("/Admin");
             }
 
             return View(entrada);
@@ -102,6 +102,11 @@ namespace BlogProyecto.Controllers
                 return HttpNotFound();
             }
             return View(entrada);
+        }
+
+        public ActionResult List()
+        {
+            return View(db.Entradas.ToList());
         }
 
         //

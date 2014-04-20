@@ -291,6 +291,7 @@
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\JavaScript.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
@@ -361,12 +362,13 @@
     <Content Include="Views\Blogger\Create.cshtml" />
     <Content Include="Views\Blogger\Edit.cshtml" />
     <Content Include="Views\Blogger\Delete.cshtml" />
-    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\Entradas.cshtml" />
     <Content Include="Views\Blog\Index.cshtml" />
     <Content Include="Views\Blog\Details.cshtml" />
     <Content Include="Views\Blog\Create.cshtml" />
     <Content Include="Views\Blog\Edit.cshtml" />
     <Content Include="Views\Blog\Delete.cshtml" />
+    <Content Include="Views\Entrada\List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,53 @@
+﻿@model IEnumerable<BlogProyecto.Models.Entrada>
+
+@{
+    ViewBag.Title = "Index";
+}
+<script src="http://templateplanet.info/tooltip.js"></script>
+<div class="container">
+	<div class="row">
+		
+        
+        <div class="col-md-12">
+        <h4>Entradas</h4>
+        <div class="table-responsive">
+        
+                
+              <table id="mytable" class="table table-bordred table-striped">
+                   
+                   <thead>
+                 
+                   <th>ID</th>
+                    <th>FECHA</th>
+                     <th>TITULO</th>
+                      <th>CONTENIDO</th>
+                       <th>ACTIVO</th>
+                       <th>ACTIONS</th>
+
+                   </thead>
+    <tbody>
+    @foreach (var item in Model) {
+    <tr>
+    <td>@Html.DisplayFor(modelItem => item.Id)</td>
+    <td>@Html.DisplayFor(modelItem => item.Fecha)</td>
+    <td>@Html.DisplayFor(modelItem => item.Titulo)</td>
+    <td>@Html.DisplayFor(modelItem => item.Contenido)</td>
+    <td>@Html.DisplayFor(modelItem => item.Activo)</td>
+    <td><p><button class="btn btn-primary btn-xs" data-title="Details" data-toggle="modal" data-target="#details" data-placement="top" rel="tooltip"><span class="glyphicon glyphicon-file"></span></button>  <button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" data-placement="top" rel="tooltip"><span class="glyphicon glyphicon-pencil"></span></button> <button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" data-placement="top" rel="tooltip"><span class="glyphicon glyphicon-trash"></span></button></p></td>
+    </tr>
+    }
+    </tbody>
+        
+</table>
+
+
+<button type="button" class="btn btn-default">
+
+    @Html.ActionLink("Create New", "CreateEntrada")
+
+</button>
+
+        </div>
+	</div>
+</div>
+
