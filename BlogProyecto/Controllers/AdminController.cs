@@ -9,6 +9,7 @@ using System.Data;
 
 namespace BlogProyecto.Controllers
 {
+    
     public class AdminController : Controller
     {
         private Context db = new Context();
@@ -23,6 +24,22 @@ namespace BlogProyecto.Controllers
         public ActionResult CreateEntrada()
         {
             return Redirect("/Entrada/Create");
+        }
+
+        public ActionResult EntradaDetails(int id = 0)
+        {
+
+            return Redirect("/Entrada/Details/"+id);
+        }
+        public ActionResult EntradaEdit(int id = 0)
+        {
+
+            return Redirect("/Entrada/Edit/" + id);
+        }
+        public ActionResult EntradaDelete(int id = 0)
+        {
+
+            return Redirect("/Entrada/Delete/" + id);
         }
     }
 }

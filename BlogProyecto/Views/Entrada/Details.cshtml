@@ -4,40 +4,83 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
 
-<fieldset>
-    <legend>Entrada</legend>
+<div class="container">
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Fecha)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Fecha)
-    </div>
+    
+        <div class="row">
+             
+   
+            <div class="col-lg-8 col-md-offset-2">
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Titulo)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Titulo)
-    </div>
+                <div class="well">
+                <!-- the actual blog post: title/author/date/content -->
+                <h1> @Html.DisplayFor(modelItem => Model.Titulo) </h1>
+                <p class="lead">by <a href="index.php">@Html.DisplayFor(model => model.Usuario)</a>
+                </p>
+                <hr>
+                <p>
+                    <span class="glyphicon glyphicon-time"></span> Posted on @Html.DisplayFor(model => model.Fecha)</p>
+                <hr>
+                @Html.DisplayFor(model => model.Contenido);
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Contenido)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Contenido)
-    </div>
+                <hr>
+                    <div>
+  </div>
+                    </div>
+                </div>
+                    
+                        <div class="row">
+		
+        
+        <div class="col-md-8 col-md-offset-2">
+        <h4>Comentarios</h4>
+        <div class="table-responsive">
+        
+                
+              <table id="mytable" class="table table-bordred table-striped">
+                   
+                   <thead>
+                 
+                   <th>ID</th>
+                    <th>FECHA</th>
+                      <th>CONTENIDO</th>
+                       <th>ACTIVO</th>
+                       
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Activo)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Activo)
-    </div>
-</fieldset>
+                   </thead>
+    <tbody>
+    @foreach (var comment in Model.Comentarios)
+    {
+    <tr>
+    <td width="20">@Html.DisplayFor(modelItem => comment.Id)</td>
+    <td width="200">@Html.DisplayFor(modelItem => comment.Fecha)</td>
+    <td width="500">@Html.DisplayFor(modelItem => comment.Contenido)</td>
+    <td width="5">@Html.EditorFor(modelItem => comment.Activo)</td>
+    </tr>
+    }
+    </tbody>
+        
+</table>
+
+
+
+        
+	</div>
+</div>
+
+
+
+
+                    </div>
+            </div>
+                    
+                
+
+            </div>
+
+
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
+    <a class="blanco" href="@Url.Action("Entradas", "Admin")">Back to List</a>
+
 </p>

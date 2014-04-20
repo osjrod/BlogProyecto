@@ -14,15 +14,26 @@
 
     </head>
     <body>
+        <div class="jumbotron jumbotron-sm">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-lg-12">
+                <h1 class="h1">BlogProyecto
+
+                </h1>
+            </div>
+        </div>
+    </div>
+</div>
+
         <header>
             <div class="content-wrapper">
                 <div class="float-right">
                     
-                    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+                    <nav class="navbar navbar-inverse " role="navigation">
                         <ul id="menu" class="nav navbar-nav">
-                            <li>@Html.ActionLink("Inicio", "Index", "Entrada")</li>
-                            <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
-                            <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
+                            <li>@Html.ActionLink("Blog", "Index", "Entrada")</li>
+                            <li>@Html.ActionLink("Admin", "Entradas", "Admin")</li>
                         </ul>
 
                         <section id="login">
@@ -42,7 +53,7 @@
         <footer>
             <div class="content-wrapper">
                 <div class="float-left">
-                    <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET MVC</p>
+                    <p>&copy; @DateTime.Now.Year - BlogProyecto | Designed by Oscar Jimenez</p>
                 </div>
             </div>
         </footer>

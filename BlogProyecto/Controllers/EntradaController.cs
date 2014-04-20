@@ -21,6 +21,13 @@ namespace BlogProyecto.Controllers
 
         public ViewResult Index(int page = 1)
         {
+
+            Blog blog = db.Blogs.Find(1);
+            ViewBag.blog = blog;
+
+            Blogger blogger = db.Bloggers.Find(1);
+            ViewBag.blogger = blogger; 
+
             List<Entrada> model = this.db.Entradas.ToList();
             const int pageSize = 3;
             return View(model.ToPagedList(page, pageSize));
@@ -50,6 +57,7 @@ namespace BlogProyecto.Controllers
         //
         // POST: /Entrada/Create
 
+         [ValidateInput(false)]
         [HttpPost]
         public ActionResult Create(Entrada entrada)
         {
@@ -78,7 +86,7 @@ namespace BlogProyecto.Controllers
 
         //
         // POST: /Entrada/Edit/5
-
+        [ValidateInput(false)]
         [HttpPost]
         public ActionResult Edit(Entrada entrada)
         {
@@ -86,7 +94,7 @@ namespace BlogProyecto.Controllers
             {
                 db.Entry(entrada).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return Redirect("/Admin");
             }
             return View(entrada);
         }
@@ -106,6 +114,8 @@ namespace BlogProyecto.Controllers
 
         public ActionResult List()
         {
+           
+
             return View(db.Entradas.ToList());
         }
 
@@ -118,7 +128,7 @@ namespace BlogProyecto.Controllers
             Entrada entrada = db.Entradas.Find(id);
             db.Entradas.Remove(entrada);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return Redirect("/Admin");
         }
 
         protected override void Dispose(bool disposing)

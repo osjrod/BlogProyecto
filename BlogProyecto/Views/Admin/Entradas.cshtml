@@ -3,7 +3,6 @@
 @{
     ViewBag.Title = "Index";
 }
-<script src="http://templateplanet.info/tooltip.js"></script>
 <div class="container">
 	<div class="row">
 		
@@ -28,12 +27,12 @@
     <tbody>
     @foreach (var item in Model) {
     <tr>
-    <td>@Html.DisplayFor(modelItem => item.Id)</td>
-    <td>@Html.DisplayFor(modelItem => item.Fecha)</td>
-    <td>@Html.DisplayFor(modelItem => item.Titulo)</td>
-    <td>@Html.DisplayFor(modelItem => item.Contenido)</td>
-    <td>@Html.DisplayFor(modelItem => item.Activo)</td>
-    <td><p><button class="btn btn-primary btn-xs" data-title="Details" data-toggle="modal" data-target="#details" data-placement="top" rel="tooltip"><span class="glyphicon glyphicon-file"></span></button>  <button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit" data-placement="top" rel="tooltip"><span class="glyphicon glyphicon-pencil"></span></button> <button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" data-placement="top" rel="tooltip"><span class="glyphicon glyphicon-trash"></span></button></p></td>
+    <td width="20">@Html.DisplayFor(modelItem => item.Id)</td>
+    <td width="100">@Html.DisplayFor(modelItem => item.Fecha)</td>
+    <td width="150">@Html.DisplayFor(modelItem => item.Titulo)</td>
+    <td width="500">@Html.DisplayFor(modelItem => item.Contenido)</td>
+    <td width="5">@Html.EditorFor(modelItem => item.Activo)</td>
+    <td width="30"><p><a class="blanco" href="@Url.Action("EntradaDetails/"+item.Id, "Admin")"><button class="btn btn-primary btn-xs" ><span class='glyphicon glyphicon-file'></span></button></a>  <a class="blanco" href="@Url.Action("EntradaEdit/"+item.Id, "Admin")"><button class="btn btn-primary btn-xs" ><span class="glyphicon glyphicon-pencil"></span></button></a> <a class="blanco" href="@Url.Action("EntradaDelete/"+item.Id, "Admin")"><button class="btn btn-danger btn-xs" ><span class="glyphicon glyphicon-trash"></span></button></a></p></td>
     </tr>
     }
     </tbody>
@@ -51,3 +50,4 @@
 	</div>
 </div>
 
+    </div>

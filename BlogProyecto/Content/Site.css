@@ -1,1 +1,25 @@
-﻿
+﻿.jumbotron {
+    margin-bottom: 0;
+    margin-top: 0;
+    background-image: url(/Images/Abstract_blue_background7.jpg);
+    color: #FFF;
+    border-radius: 0px;
+}
+
+.jumbotron small {
+    color: #FFF;
+}
+
+body {
+    margin-top:0;
+}
+
+.navbar {
+    border-radius: 0px;
+}
+
+.comment {
+    background-color: white;
+    padding: 10px;
+    border-radius: 3px;
+}
