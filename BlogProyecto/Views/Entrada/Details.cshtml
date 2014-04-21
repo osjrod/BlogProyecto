@@ -16,7 +16,7 @@
                 <div class="well">
                 <!-- the actual blog post: title/author/date/content -->
                 <h1> @Html.DisplayFor(modelItem => Model.Titulo) </h1>
-                <p class="lead">by <a href="index.php">@Html.DisplayFor(model => model.Usuario)</a>
+                <p class="lead">by <a href="index.php">Usuario</a>
                 </p>
                 <hr>
                 <p>
@@ -50,7 +50,7 @@
 
                    </thead>
     <tbody>
-    @foreach (var comment in Model.Comentarios)
+    @foreach (var comment in Model.Comentarios.Reverse())
     {
     <tr>
     <td width="20">@Html.DisplayFor(modelItem => comment.Id)</td>

@@ -9,6 +9,7 @@ using BlogProyecto.Models;
 
 namespace BlogProyecto.Controllers
 {
+    [Authorize]
     public class BloggerController : Controller
     {
         private Context db = new Context();
@@ -77,11 +78,12 @@ namespace BlogProyecto.Controllers
         [HttpPost]
         public ActionResult Edit(Blogger blogger)
         {
+
             if (ModelState.IsValid)
             {
                 db.Entry(blogger).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return Redirect("/Admin");
             }
             return View(blogger);
         }

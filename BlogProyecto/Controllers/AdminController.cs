@@ -9,7 +9,7 @@ using System.Data;
 
 namespace BlogProyecto.Controllers
 {
-    
+    [Authorize]
     public class AdminController : Controller
     {
         private Context db = new Context();
@@ -18,6 +18,12 @@ namespace BlogProyecto.Controllers
 
         public ActionResult Entradas()
         {
+            Blog blog = db.Blogs.Find(1);
+            ViewBag.blog = blog;
+
+            Blogger blogger = db.Bloggers.Find(1);
+            ViewBag.blogger = blogger; 
+
             return View(db.Entradas.ToList());
         }
 

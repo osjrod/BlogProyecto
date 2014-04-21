@@ -26,7 +26,7 @@ namespace BlogProyecto
                 appId: "1476940012518574",
                 appSecret: "57d80de5ef9870bdc917872300cd070e");
 
-            //OAuthWebSecurity.RegisterGoogleClient();
+            OAuthWebSecurity.RegisterGoogleClient();
         }
     }
 }

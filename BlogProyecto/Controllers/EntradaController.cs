@@ -8,10 +8,12 @@ using System.Web.Mvc;
 using BlogProyecto.Models;
 using PagedList.Mvc;
 using PagedList;
+using BlogProyecto.Filters;
 
 
 namespace BlogProyecto.Controllers
 {
+
     public class EntradaController : Controller
     {
         private Context db = new Context();
@@ -29,6 +31,8 @@ namespace BlogProyecto.Controllers
             ViewBag.blogger = blogger; 
 
             List<Entrada> model = this.db.Entradas.ToList();
+            model.Reverse();
+
             const int pageSize = 3;
             return View(model.ToPagedList(page, pageSize));
         }
@@ -36,6 +40,7 @@ namespace BlogProyecto.Controllers
         //
         // GET: /Entrada/Details/5
 
+        [Authorize]
         public ActionResult Details(int id = 0)
         {
             Entrada entrada = db.Entradas.Find(id);
@@ -48,7 +53,7 @@ namespace BlogProyecto.Controllers
 
         //
         // GET: /Entrada/Create
-
+        [Authorize]
         public ActionResult Create()
         {
             return View();
@@ -59,6 +64,7 @@ namespace BlogProyecto.Controllers
 
          [ValidateInput(false)]
         [HttpPost]
+        [Authorize]
         public ActionResult Create(Entrada entrada)
         {
             if (ModelState.IsValid)
@@ -73,7 +79,7 @@ namespace BlogProyecto.Controllers
 
         //
         // GET: /Entrada/Edit/5
-
+        [Authorize]
         public ActionResult Edit(int id = 0)
         {
             Entrada entrada = db.Entradas.Find(id);
@@ -88,6 +94,7 @@ namespace BlogProyecto.Controllers
         // POST: /Entrada/Edit/5
         [ValidateInput(false)]
         [HttpPost]
+        [Authorize]
         public ActionResult Edit(Entrada entrada)
         {
             if (ModelState.IsValid)
@@ -99,19 +106,9 @@ namespace BlogProyecto.Controllers
             return View(entrada);
         }
 
-        //
-        // GET: /Entrada/Delete/5
+       
 
-        public ActionResult Delete(int id = 0)
-        {
-            Entrada entrada = db.Entradas.Find(id);
-            if (entrada == null)
-            {
-                return HttpNotFound();
-            }
-            return View(entrada);
-        }
-
+        [Authorize]
         public ActionResult List()
         {
            
@@ -122,7 +119,8 @@ namespace BlogProyecto.Controllers
         //
         // POST: /Entrada/Delete/5
 
-        [HttpPost, ActionName("Delete")]
+        [ActionName("Delete")]
+        [Authorize]
         public ActionResult DeleteConfirmed(int id)
         {
             Entrada entrada = db.Entradas.Find(id);

@@ -9,8 +9,10 @@ using BlogProyecto.Models;
 
 namespace BlogProyecto.Controllers
 {
+    [Authorize]
     public class ComentarioController : Controller
     {
+        
         private Context db = new Context();
 
         //
@@ -77,6 +79,29 @@ namespace BlogProyecto.Controllers
         [HttpPost]
         public ActionResult Edit(Comentario comentario)
         {
+            if (ModelState.IsValid)
+            {
+                db.Entry(comentario).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(comentario);
+        }
+
+        [HttpPost]
+        public ActionResult ActiveDeactive(int id)
+        {
+            Comentario comentario = db.Comentarios.Find(id);
+
+            if (comentario.Activo)
+            {
+                comentario.Activo = false;
+            }
+            else
+            {
+                comentario.Activo = true;
+            }
+
             if (ModelState.IsValid)
             {
                 db.Entry(comentario).State = EntityState.Modified;

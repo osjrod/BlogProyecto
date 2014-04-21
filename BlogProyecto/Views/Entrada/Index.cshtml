@@ -16,9 +16,10 @@
    
             <div class="col-lg-8">
                 @foreach (var item in Model) {
+                    
                 <div class="well">
                 <h1> @Html.DisplayFor(modelItem => item.Titulo) </h1>
-                <p class="text-muted">by Usuario |  <a href="index.php">@Html.DisplayFor(modelItem => item.Usuario)</a> <span class="glyphicon glyphicon-time"></span> Posted on @Html.DisplayFor(modelItem => item.Fecha)
+                <p class="text-muted">by Usuario |  <a href="index.php">Usuario</a> <span class="glyphicon glyphicon-time"></span> Posted on @Html.DisplayFor(modelItem => item.Fecha)
                 </p>
                 <hr>
                 @Html.Raw(item.Contenido)
@@ -44,6 +45,7 @@
                 <hr>
                     <div>
                         @foreach (var comment in item.Comentarios.Reverse()) { 
+                            if(comment.Activo){
                 <div class="well">
                 <h4>Usuario </h4>
                 <p class="text-muted"><small>@Html.DisplayFor(modelItem => comment.Fecha)</small></p>
@@ -51,6 +53,7 @@
                     <p>@Html.DisplayFor(modelItem => comment.Contenido)</p>
                     </div>
                             </div>
+                        }
                     }
                     </div>
             </div>

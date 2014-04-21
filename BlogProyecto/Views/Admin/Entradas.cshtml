@@ -6,8 +6,96 @@
 <div class="container">
 	<div class="row">
 		
+        <div class="col-md-12">
+            <div class="row">
+
+            <div class="col-md-5 well">
+
+                <form class="form-horizontal" role="form" action="Blog/Edit" method="post">
+          <input type="hidden" class="form-control" name="Id" value="1" />
+        <fieldset>
+          <legend>Blog Info</legend>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="textinput">Nombre</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" name="Nombre" value="@ViewBag.Blog.Nombre"/>
+            </div>
+          </div>
+
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="textinput">Detalle</label>
+            <div class="col-sm-10">
+              <textarea name="Detalle" class="form-control" rows="15" >@ViewBag.Blog.Detalle</textarea>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <div class="pull-right">
+                <button id="sumBlog" type="submit" class="btn btn-primary">Guardar</button>
+              </div>
+            </div>
+          </div>
+
+
+        </fieldset>
+      </form>
+
+            </div>
+                <div class="col-md-1"></div>
+            <div class="col-md-6 well">
+
+                <form class="form-horizontal" role="form" action="Blogger/Edit" method="post">
+          <input type="hidden" class="form-control" name="Id" value="1" />
+        <fieldset>
+          <legend>Blog Info</legend>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="textinput">Nombre</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" name="Nombre" value="@ViewBag.Blogger.Nombre"/>
+            </div>
+          </div>
+
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="textinput">Biografia</label>
+            <div class="col-sm-10">
+              <textarea name="Biografia" class="form-control" rows="12" >@ViewBag.Blogger.Biografia</textarea>
+            </div>
+          </div>
+
+            <div class="form-group">
+            <label class="col-sm-2 control-label" for="textinput">Redes Sociales</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" name="Redes" value="@ViewBag.Blogger.Redes"/>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <div class="pull-right">
+                <button id="sumBlogger" type="submit" class="btn btn-primary">Guardar</button>
+              </div>
+            </div>
+          </div>
+
+        </fieldset>
+      </form>
+
+
+            </div>
+
+                </div>
+
+            </div>
+
+        <hr />
+
+
         
         <div class="col-md-12">
+            <hr />
         <h4>Entradas</h4>
         <div class="table-responsive">
         
@@ -20,19 +108,17 @@
                     <th>FECHA</th>
                      <th>TITULO</th>
                       <th>CONTENIDO</th>
-                       <th>ACTIVO</th>
-                       <th>ACTIONS</th>
+                       <th></th>
 
                    </thead>
     <tbody>
-    @foreach (var item in Model) {
+    @foreach (var item in Model.Reverse()) {
     <tr>
     <td width="20">@Html.DisplayFor(modelItem => item.Id)</td>
     <td width="100">@Html.DisplayFor(modelItem => item.Fecha)</td>
     <td width="150">@Html.DisplayFor(modelItem => item.Titulo)</td>
-    <td width="500">@Html.DisplayFor(modelItem => item.Contenido)</td>
-    <td width="5">@Html.EditorFor(modelItem => item.Activo)</td>
-    <td width="30"><p><a class="blanco" href="@Url.Action("EntradaDetails/"+item.Id, "Admin")"><button class="btn btn-primary btn-xs" ><span class='glyphicon glyphicon-file'></span></button></a>  <a class="blanco" href="@Url.Action("EntradaEdit/"+item.Id, "Admin")"><button class="btn btn-primary btn-xs" ><span class="glyphicon glyphicon-pencil"></span></button></a> <a class="blanco" href="@Url.Action("EntradaDelete/"+item.Id, "Admin")"><button class="btn btn-danger btn-xs" ><span class="glyphicon glyphicon-trash"></span></button></a></p></td>
+    <td width="450">@Html.DisplayFor(modelItem => item.Contenido)</td>
+    <td width="75"><p><a class="blanco" href="@Url.Action("EntradaDetails/"+item.Id, "Admin")"><button class="btn btn-primary btn-xs" ><span class='glyphicon glyphicon-file'></span></button></a>  <a class="blanco" href="@Url.Action("EntradaEdit/"+item.Id, "Admin")"><button class="btn btn-primary btn-xs" ><span class="glyphicon glyphicon-pencil"></span></button></a> <a class="blanco" href="@Url.Action("EntradaDelete/"+item.Id, "Admin")"><button class="btn btn-danger btn-xs" ><span class="glyphicon glyphicon-trash"></span></button></a></p></td>
     </tr>
     }
     </tbody>

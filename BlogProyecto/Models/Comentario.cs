@@ -15,6 +15,7 @@ namespace BlogProyecto.Models
         public String Contenido { get; set; }
         public bool Activo { get; set; }
         public int EntradaId { get; set; }
+
  
     }
 }

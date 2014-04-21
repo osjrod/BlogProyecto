@@ -4,51 +4,53 @@
     ViewBag.Title = "Edit";
 }
 
-<h2>Edit</h2>
 
-@using (Html.BeginForm()) {
-    @Html.ValidationSummary(true)
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <form class="form-horizontal" role="form" action="/Entrada/Edit" method="post">
+          @Html.ValidationSummary(true)
+        <fieldset>
 
-    <fieldset>
-        <legend>Entrada</legend>
-
-        @Html.HiddenFor(model => model.Id)
-        @Html.HiddenFor(model => model.Fecha)
-
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Titulo)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Titulo)
+          <legend>Editar Entrada</legend>
+             @Html.HiddenFor(model => model.Id)
+             @Html.HiddenFor(model => model.Fecha)
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="textinput"> @Html.LabelFor(model => model.Titulo)</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" name="Titulo" value="@Model.Titulo"/>
             @Html.ValidationMessageFor(model => model.Titulo)
-        </div>
+            </div>
+          </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Contenido)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Contenido)
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="textinput">@Html.LabelFor(model => model.Contenido)</label>
+            <div class="col-sm-10">
+              <textarea name="Contenido" class="form-control" rows="15">@Model.Contenido</textarea>
             @Html.ValidationMessageFor(model => model.Contenido)
-        </div>
+            </div>
+          </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Activo)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Activo)
-            @Html.ValidationMessageFor(model => model.Activo)
-        </div>
 
-        <p>
-            <input type="submit" value="Save" />
-        </p>
-    </fieldset>
-}
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <div class="pull-right">
+                <button type="submit" class="btn btn-primary">Guardar</button>
+              </div>
+            </div>
+          </div>
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+        </fieldset>
+      </form>
+    </div><!-- /.col-lg-12 -->
+</div><!-- /.row -->
+
+<p>
+    <a class="blanco" href="@Url.Action("Entradas", "Admin")">Back to List</a>
+
+</p>
+
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

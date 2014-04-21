@@ -1,18 +1,17 @@
 ﻿$(document).ready(function () {
-    $("#mytable #checkall").click(function () {
-        if ($("#mytable #checkall").is(':checked')) {
-            $("#mytable input[type=checkbox]").each(function () {
-                $(this).prop("checked", true);
-            });
-
-        } else {
-            $("#mytable input[type=checkbox]").each(function () {
-                $(this).prop("checked", false);
-            });
-        }
+    $(".check-box").click(function () {
+        $.ajax({
+            data: { "Id": $(this).parent().prev().prev().prev().text() },
+            url: '/Comentario/ActiveDeactive',
+            type: 'post',
+            success: function (response) {
+                
+            }
+        });
     });
+
+
+
+
 });
 
-$(function () {
-    $("[rel='tooltip']").tooltip();
-});
