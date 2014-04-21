@@ -40,7 +40,7 @@ namespace BlogProyecto.Controllers
         //
         // GET: /Entrada/Details/5
 
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         public ActionResult Details(int id = 0)
         {
             Entrada entrada = db.Entradas.Find(id);
@@ -53,7 +53,7 @@ namespace BlogProyecto.Controllers
 
         //
         // GET: /Entrada/Create
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
             return View();
@@ -64,7 +64,7 @@ namespace BlogProyecto.Controllers
 
          [ValidateInput(false)]
         [HttpPost]
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         public ActionResult Create(Entrada entrada)
         {
             if (ModelState.IsValid)
@@ -79,7 +79,7 @@ namespace BlogProyecto.Controllers
 
         //
         // GET: /Entrada/Edit/5
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(int id = 0)
         {
             Entrada entrada = db.Entradas.Find(id);
@@ -94,7 +94,7 @@ namespace BlogProyecto.Controllers
         // POST: /Entrada/Edit/5
         [ValidateInput(false)]
         [HttpPost]
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(Entrada entrada)
         {
             if (ModelState.IsValid)
@@ -106,9 +106,9 @@ namespace BlogProyecto.Controllers
             return View(entrada);
         }
 
-       
 
-        [Authorize]
+
+        [Authorize(Roles = "Admin")]
         public ActionResult List()
         {
            
@@ -120,7 +120,7 @@ namespace BlogProyecto.Controllers
         // POST: /Entrada/Delete/5
 
         [ActionName("Delete")]
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         public ActionResult DeleteConfirmed(int id)
         {
             Entrada entrada = db.Entradas.Find(id);

@@ -9,7 +9,7 @@ using BlogProyecto.Models;
 
 namespace BlogProyecto.Controllers
 {
-    [Authorize]
+    
     public class ComentarioController : Controller
     {
         
@@ -17,7 +17,7 @@ namespace BlogProyecto.Controllers
 
         //
         // GET: /Comentario/
-
+        [Authorize(Roles = "Admin")]
         public ActionResult Index()
         {
             return View(db.Comentarios.ToList());
@@ -25,7 +25,7 @@ namespace BlogProyecto.Controllers
 
         //
         // GET: /Comentario/Details/5
-
+        [Authorize(Roles = "Admin")]
         public ActionResult Details(int id = 0)
         {
             Comentario comentario = db.Comentarios.Find(id);
@@ -39,15 +39,17 @@ namespace BlogProyecto.Controllers
         //
         // GET: /Comentario/Create
 
+        [Authorize]
         public ActionResult Create()
         {
-            return View();
+            return Redirect("/");
         }
 
         //
         // POST: /Comentario/Create
 
         [HttpPost]
+        [Authorize]
         public ActionResult Create(Comentario comentario)
         {
             if (ModelState.IsValid)
@@ -62,7 +64,7 @@ namespace BlogProyecto.Controllers
 
         //
         // GET: /Comentario/Edit/5
-
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(int id = 0)
         {
             Comentario comentario = db.Comentarios.Find(id);
@@ -77,6 +79,7 @@ namespace BlogProyecto.Controllers
         // POST: /Comentario/Edit/5
 
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(Comentario comentario)
         {
             if (ModelState.IsValid)
@@ -89,6 +92,7 @@ namespace BlogProyecto.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public ActionResult ActiveDeactive(int id)
         {
             Comentario comentario = db.Comentarios.Find(id);
@@ -113,7 +117,7 @@ namespace BlogProyecto.Controllers
 
         //
         // GET: /Comentario/Delete/5
-
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int id = 0)
         {
             Comentario comentario = db.Comentarios.Find(id);
@@ -128,6 +132,7 @@ namespace BlogProyecto.Controllers
         // POST: /Comentario/Delete/5
 
         [HttpPost, ActionName("Delete")]
+        [Authorize(Roles = "Admin")]
         public ActionResult DeleteConfirmed(int id)
         {
             Comentario comentario = db.Comentarios.Find(id);

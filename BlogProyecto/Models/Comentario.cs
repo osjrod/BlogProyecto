@@ -14,6 +14,7 @@ namespace BlogProyecto.Models
         public DateTime Fecha { get; set; }
         public String Contenido { get; set; }
         public bool Activo { get; set; }
+        public String Usuario { get; set; }
         public int EntradaId { get; set; }
 
  

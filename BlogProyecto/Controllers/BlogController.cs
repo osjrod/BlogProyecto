@@ -9,7 +9,7 @@ using BlogProyecto.Models;
 
 namespace BlogProyecto.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     public class BlogController : Controller
     {
         

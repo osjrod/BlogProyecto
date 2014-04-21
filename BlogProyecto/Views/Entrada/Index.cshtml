@@ -19,7 +19,7 @@
                     
                 <div class="well">
                 <h1> @Html.DisplayFor(modelItem => item.Titulo) </h1>
-                <p class="text-muted">by Usuario |  <a href="index.php">Usuario</a> <span class="glyphicon glyphicon-time"></span> Posted on @Html.DisplayFor(modelItem => item.Fecha)
+                <p class="text-muted"><span class="glyphicon glyphicon-time"></span> Posted on @Html.DisplayFor(modelItem => item.Fecha)
                 </p>
                 <hr>
                 @Html.Raw(item.Contenido)
@@ -36,6 +36,7 @@
                         <div class="form-group">
                             <textarea name="Contenido" class="form-control" rows="3"></textarea>
                             <input type="hidden" name="EntradaId" class="form-control" value="@item.Id">
+                            <input type="hidden" name="Usuario" class="form-control" value="@User.Identity.Name">
                             <input type="hidden" name="Fecha" class="form-control" value="@DateTime.Now">
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
@@ -47,7 +48,7 @@
                         @foreach (var comment in item.Comentarios.Reverse()) { 
                             if(comment.Activo){
                 <div class="well">
-                <h4>Usuario </h4>
+                <h4>@Html.DisplayFor(modelItem => comment.Usuario) </h4>
                 <p class="text-muted"><small>@Html.DisplayFor(modelItem => comment.Fecha)</small></p>
                 <div class="comment">
                     <p>@Html.DisplayFor(modelItem => comment.Contenido)</p>

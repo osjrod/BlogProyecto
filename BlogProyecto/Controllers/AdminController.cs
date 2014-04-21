@@ -9,7 +9,7 @@ using System.Data;
 
 namespace BlogProyecto.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     public class AdminController : Controller
     {
         private Context db = new Context();
